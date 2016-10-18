@@ -21,10 +21,12 @@ celery.conf.update(app.config)
 
 from portal_ui.views import portal_ui
 from sites.views import sites
+from wqx.views import wqx
 
 app.register_blueprint(portal_ui, url_prefix='')
 app.register_blueprint(sites,
                        url_prefix='/sites')
+app.register_blueprint(wqx, url_prefix='/schemas')
 
 # Set up swagger endpoints
 @app.route('/spec')

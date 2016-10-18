@@ -7,5 +7,7 @@ recursive-include docs *
 recursive-include wqp/portal_ui/templates *
 recursive-include wqp/flask_swagger_ui/templates *
 recursive-include wqp/flask_swagger_ui/static *
+recursive-include wqp/wqx/templates *
+recursive-include wqp/wqx/static *
 recursive-include static *
 prune instance
