@@ -1,5 +1,5 @@
 import argparse
-from wqp import app as application
+from wqp_ui import app as application
 
 
 if __name__ == '__main__':    

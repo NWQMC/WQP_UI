@@ -63,4 +63,4 @@ target/
 .project
 .pydevproject
 /static/
-/wqp/bower_components/
+/wqp_ui/bower_components/
