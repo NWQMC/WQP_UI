@@ -15,32 +15,32 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-        'wqp/bower_components/underscore/underscore-min.js',
-        'wqp/bower_components/jquery/dist/jquery.min.js',
-        'wqp/bower_components/bootstrap/dist/js/bootstrap.min.js',
-        'wqp/bower_components/jquery-ui/jquery-ui.min.js',
-        'wqp/bower_components/numeral/min/numeral.min.js',
-        'wqp/bower_components/select2/dist/js/select2.min.js',
-        'wqp/bower_components/handlebars/handlebars.min.js',
-        'wqp/bower_components/loglevel/dist/loglevel.min.js',
-        'wqp/bower_components/ol3/ol.js',
-        'wqp/bower_components/ol3-layerswitcher/src/ol3-layerswitcher.js',
-        'wqp/bower_components/leaflet/dist/leaflet.js',
-        'wqp/bower_components/leaflet-providers/leaflet-providers.js',
-        'wqp/bower_components/esri-leaflet/dist/esri-leaflet.js',
-        'wqp/bower_components/Leaflet.EasyButton/src/easy-button.js',
-        'wqp/portal_ui/static/vendor/OpenLayers/OpenLayers.js',
+        'wqp_ui/bower_components/underscore/underscore-min.js',
+        'wqp_ui/bower_components/jquery/dist/jquery.min.js',
+        'wqp_ui/bower_components/bootstrap/dist/js/bootstrap.min.js',
+        'wqp_ui/bower_components/jquery-ui/jquery-ui.min.js',
+        'wqp_ui/bower_components/numeral/min/numeral.min.js',
+        'wqp_ui/bower_components/select2/dist/js/select2.min.js',
+        'wqp_ui/bower_components/handlebars/handlebars.min.js',
+        'wqp_ui/bower_components/loglevel/dist/loglevel.min.js',
+        'wqp_ui/bower_components/ol3/ol.js',
+        'wqp_ui/bower_components/ol3-layerswitcher/src/ol3-layerswitcher.js',
+        'wqp_ui/bower_components/leaflet/dist/leaflet.js',
+        'wqp_ui/bower_components/leaflet-providers/leaflet-providers.js',
+        'wqp_ui/bower_components/esri-leaflet/dist/esri-leaflet.js',
+        'wqp_ui/bower_components/Leaflet.EasyButton/src/easy-button.js',
+        'wqp_ui/portal_ui/static/vendor/OpenLayers/OpenLayers.js',
         'test/js/vendor/sinon-1.17.2.js',
         'test/resources/testConfig.js',
-        'wqp/portal_ui/static/js/**/*.js',
+        'wqp_ui/portal_ui/static/js/**/*.js',
         'test/js/portal_ui/**/*.js'
     ],
 
 
     // list of files to exclude
     exclude: [
-        'wqp/portal_ui/static/js/portalOnReady.js',
-        'wqp/portal_ui/static/js/angular/**/*.js'
+        'wqp_ui/portal_ui/static/js/portalOnReady.js',
+        'wqp_ui/portal_ui/static/js/angular/**/*.js'
     ],
 
     // preprocess matching files before serving them to the browser

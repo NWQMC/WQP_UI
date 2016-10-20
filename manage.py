@@ -2,7 +2,7 @@ from flask_assets import ManageAssets
 from flask_collect import Collect
 from flask_script import Manager, Command
 
-from wqp import app
+from wqp_ui import app
 
 
 class CollectStaticFiles(Command):
