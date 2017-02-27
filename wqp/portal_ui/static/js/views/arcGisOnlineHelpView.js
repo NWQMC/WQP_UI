@@ -51,16 +51,22 @@ PORTAL.VIEWS = PORTAL.VIEWS || {};
 		 * @param {String} selectedSld - The SLD string that will be used to in the dialog
 		 */
 		var showDialog = function (queryParams, selectedSld) {
-			var wfsUrl = decodeURIComponent(L.WQPSitesLayer.getWfsGetFeatureUrl(queryParams));
-			var queryStr = wfsUrl.substring(wfsUrl.indexOf('?') + 1);
-			var queryStrPairs = queryStr.split('&');
-			var parameters = {};
-			queryStrPairs.forEach(function (pair) {
-				pair = pair.split('=');
-				parameters[pair[0]] = pair[1];
-			});
+
+			//This is not DRY, it is copy-pasted from WQPSitesLayer.js
+			//TODO: instead of copy-pasting, import the variable
+			var getSearchParams = function(queryParamArray) {
+				var queryJson = PORTAL.UTILS.getQueryParamJson(queryParamArray);
+				var resultJson = _.omit(queryJson, ['mimeType', 'zip']);
+				resultJson = _.mapObject(resultJson, function(value) {
+					return value.join('|');
+				});
+				var resultArray =  _.map(resultJson, function(value, name) {
+					return name + ':' + value;
+				});
+				return resultArray.join(';');
+			};
 			var hbContext = {
-				searchParams: parameters.SEARCHPARAMS,
+				searchParams: getSearchParams(queryParams),
 				style: selectedSld
 			};
 
