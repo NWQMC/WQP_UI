@@ -81,7 +81,7 @@
     "uglifycss": "0.0.29"
   },
   "dependencies": {
-    "bootstrap": "3.3.7",
+    "bootstrap": "3.4.0",
     "esri-leaflet": "2.1.4",
     "font-awesome": "4.7.0",
     "jquery": "3.3.1",
