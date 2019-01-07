@@ -1,6 +1,6 @@
 arrow==0.12.1
 Authlib==0.10
-beautifulsoup4==4.6.3
+beautifulsoup4==4.7.1
 celery==4.2.1
 feedparser==5.2.1
 Flask==1.0.2
