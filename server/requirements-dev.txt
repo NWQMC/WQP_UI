@@ -3,5 +3,5 @@ coverage==4.5.2
 coveralls==1.5.1
 pylint==2.2.2
 requests-mock==1.5.2
-SaltPyLint==2018.11.20
+SaltPyLint==2019.1.10
 
