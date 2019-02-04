@@ -62,7 +62,7 @@
     "karma-js-coverage": "0.4.0",
     "karma-rollup-preprocessor": "^6.0.0",
     "karma-sinon": "1.0.5",
-    "less": "3.0.4",
+    "less": "3.9.0",
     "live-server": "^1.2.0",
     "live-server-https": "0.0.2",
     "nodemon": "^1.18.9",
