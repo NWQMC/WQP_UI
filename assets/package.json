@@ -76,7 +76,7 @@
     "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-plugin-replace": "^2.1.0",
     "rollup-plugin-uglify": "^4.0.0",
-    "sinon": "5.0.7",
+    "sinon": "7.2.3",
     "uglifycss": "0.0.29"
   },
   "dependencies": {
