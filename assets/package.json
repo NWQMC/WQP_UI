@@ -89,7 +89,7 @@
     "leaflet-draw": "1.0.4",
     "leaflet-easybutton": "2.3.0",
     "leaflet-providers": "1.1.17",
-    "leaflet.markercluster": "1.3.0",
+    "leaflet.markercluster": "1.4.1",
     "lodash": "4.17.11",
     "loglevel": "1.6.1",
     "nanobar": "0.4.2",
