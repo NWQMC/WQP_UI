@@ -52,7 +52,7 @@
     "eslint": "^5.14.0",
     "eslint-plugin-jasmine": "^2.10.1",
     "gulp": "^3.9.1",
-    "gulp-rev-all": "^0.9.7",
+    "gulp-rev-all": "^1.0.0",
     "jasmine-core": "3.3.0",
     "karma": "4.0.0",
     "karma-chrome-launcher": "^2.2.0",
