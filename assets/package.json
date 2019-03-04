@@ -49,7 +49,7 @@
   "devDependencies": {
     "autoprefixer": "^9.4.9",
     "concat": "^1.0.3",
-    "eslint": "^5.14.0",
+    "eslint": "^5.15.0",
     "eslint-plugin-jasmine": "^2.10.1",
     "gulp": "^4.0.0",
     "gulp-rev-all": "^1.0.0",
