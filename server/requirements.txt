@@ -4,7 +4,7 @@ beautifulsoup4==4.7.1
 celery==4.2.2
 feedparser==5.2.1
 Flask==1.0.2
-flask-swagger==0.2.13
+flask-swagger==0.2.14
 geojson==2.4.1
 gunicorn[gevent]==19.9.0
 pyproj==1.9.6
