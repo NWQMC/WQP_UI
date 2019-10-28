@@ -46,7 +46,7 @@
   },
   "homepage": "https://github.com/USGS-CIDA/WQP_UI",
   "devDependencies": {
-    "autoprefixer": "^9.6.1",
+    "autoprefixer": "^9.7.0",
     "concat": "^1.0.3",
     "eslint": "^6.4.0",
     "eslint-plugin-jasmine": "^2.10.1",
