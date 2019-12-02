@@ -8,7 +8,7 @@ Flask-WTF==0.14.2
 flask-swagger==0.2.14
 geojson==2.5.0
 gunicorn[gevent]==20.0.3
-pyproj==2.4.1
+pyproj==2.4.2.post1
 redis==3.3.11
 requests==2.22.0
 whitenoise==4.1.4
