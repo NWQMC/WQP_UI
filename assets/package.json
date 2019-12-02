@@ -48,7 +48,7 @@
   "devDependencies": {
     "autoprefixer": "^9.7.2",
     "concat": "^1.0.3",
-    "eslint": "^6.7.1",
+    "eslint": "^6.7.2",
     "eslint-plugin-jasmine": "^4.1.0",
     "gulp": "^4.0.2",
     "gulp-rev-all": "^2.0.2",
