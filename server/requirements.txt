@@ -1,7 +1,7 @@
 arrow==0.15.4
 Authlib==0.13.0
 beautifulsoup4==4.8.1
-celery==4.3.0
+celery==4.4.0
 feedparser==5.2.1
 Flask==1.1.1
 Flask-WTF==0.14.2
