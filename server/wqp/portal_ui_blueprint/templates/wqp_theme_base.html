@@ -7,22 +7,7 @@
 {% endblock %}
 
 {% block page_header %}
-    <div id="page-header-small">
-        <a href="http://acwi.gov/monitoring/">
-            <div id="page-header-logo">
-                <img src="{{ 'img/NWQMC_newlogo.jpg' | asset_url }}"/>
-            </div>
-            <div id="page-header-text-div">
-                <div id="page-header-sponser-div">NATIONAL WATER QUALITY MONITORING COUNCIL</div>
-                <div id="page-header-tag-line-div">Working Together for Clean Water</div>
-            </div>
-        </a>
-    </div>
-
     <div id="page-header-full">
-        <a href="http://acwi.gov/monitoring/">
-            <img src="{{ 'img/NWQMC_header_web_960w.png' | asset_url }}"/>
-        </a>
         <div id="page-title">
             <a href="{{ url_for('portal_ui.home-canonical') }}">
                 <h1>
