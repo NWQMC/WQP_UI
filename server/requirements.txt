@@ -1,5 +1,5 @@
 arrow==0.15.5
-Authlib==0.14.1
+Authlib==0.14.2
 beautifulsoup4==4.8.2
 celery==4.4.0
 feedparser==5.2.1
