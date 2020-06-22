@@ -1,4 +1,4 @@
-arrow==0.15.5
+arrow==0.15.7
 Authlib==0.14.1
 beautifulsoup4==4.8.2
 celery==4.4.0
