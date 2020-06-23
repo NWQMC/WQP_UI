@@ -1,4 +1,4 @@
-bumpversion==0.5.3
+bumpversion==0.6.0
 coverage==5.1
 pylint==2.5.3
 requests-mock==1.8.0
