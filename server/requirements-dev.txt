@@ -1,5 +1,5 @@
 bumpversion==0.5.3
-coverage==5.1
+coverage==5.2
 pylint==2.5.3
 requests-mock==1.8.0
 SaltPyLint==2020.5.22
