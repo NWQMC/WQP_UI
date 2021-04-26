@@ -75,7 +75,7 @@
     "postcss-cli": "^7.1.2",
     "rollup": "^2.45.2",
     "rollup-plugin-handlebars-plus": "^0.2.5",
-    "rollup-plugin-istanbul": "^2.0.1",
+    "rollup-plugin-istanbul": "^3.0.0",
     "rollup-plugin-uglify": "^6.0.4",
     "sinon": "^9.2.4",
     "uglifycss": "^0.0.29"
