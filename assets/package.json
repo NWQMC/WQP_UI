@@ -84,7 +84,7 @@
     "bootstrap": "3.4.1",
     "esri-leaflet": "2.4.1",
     "font-awesome": "4.7.0",
-    "jquery": "3.5.1",
+    "jquery": "3.6.0",
     "jquery-ui-dist": "1.12.1",
     "leaflet": "1.6.0",
     "leaflet-draw": "1.0.4",
