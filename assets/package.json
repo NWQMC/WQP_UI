@@ -67,7 +67,7 @@
     "karma-rollup-preprocessor": "^7.0.7",
     "karma-sinon": "^1.0.5",
     "karma-spec-reporter": "0.0.32",
-    "less": "^3.13.1",
+    "less": "^4.1.1",
     "live-server": "^1.2.1",
     "live-server-https": "^0.0.2",
     "nodemon": "^2.0.7",
