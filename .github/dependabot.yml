@@ -1,0 +1,126 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/assets"
+  schedule:
+    interval: weekly
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: gulp-rev-all
+    versions:
+    - 3.0.0
+  - dependency-name: jquery
+    versions:
+    - 3.6.0
+  - dependency-name: leaflet
+    versions:
+    - 1.7.1
+  - dependency-name: eslint
+    versions:
+    - 7.18.0
+    - 7.19.0
+    - 7.20.0
+    - 7.21.0
+    - 7.22.0
+    - 7.23.0
+    - 7.24.0
+    - 7.25.0
+  - dependency-name: rollup-plugin-istanbul
+    versions:
+    - 3.0.0
+  - dependency-name: less
+    versions:
+    - 4.1.1
+  - dependency-name: "@rollup/plugin-commonjs"
+    versions:
+    - 15.1.0
+    - 18.0.0
+  - dependency-name: rollup
+    versions:
+    - 2.38.0
+    - 2.38.3
+    - 2.38.5
+    - 2.39.0
+    - 2.40.0
+    - 2.41.2
+    - 2.42.2
+    - 2.43.1
+    - 2.44.0
+    - 2.45.1
+  - dependency-name: karma
+    versions:
+    - 6.0.1
+    - 6.0.3
+    - 6.1.0
+    - 6.1.1
+    - 6.2.0
+    - 6.3.1
+    - 6.3.2
+  - dependency-name: jasmine-core
+    versions:
+    - 3.6.0
+    - 3.7.1
+  - dependency-name: lodash
+    versions:
+    - 4.17.20
+    - 4.17.21
+  - dependency-name: esri-leaflet
+    versions:
+    - 2.5.3
+    - 3.0.0
+  - dependency-name: socket.io
+    versions:
+    - 2.4.1
+  - dependency-name: leaflet-providers
+    versions:
+    - 1.11.0
+  - dependency-name: karma-jasmine
+    versions:
+    - 4.0.1
+  - dependency-name: autoprefixer
+    versions:
+    - 9.8.6
+- package-ecosystem: pip
+  directory: "/server"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: pylint
+    versions:
+    - 2.6.0
+    - 2.6.2
+    - 2.7.0
+    - 2.7.1
+    - 2.7.2
+    - 2.7.3
+    - 2.7.4
+    - 2.8.1
+  - dependency-name: arrow
+    versions:
+    - 0.17.0
+    - 1.0.2
+    - 1.0.3
+  - dependency-name: pyproj
+    versions:
+    - 3.0.0.post1
+    - 3.0.1
+  - dependency-name: coverage
+    versions:
+    - "5.4"
+    - "5.5"
+  - dependency-name: celery
+    versions:
+    - 5.0.5
+  - dependency-name: feedparser
+    versions:
+    - 6.0.2
+  - dependency-name: beautifulsoup4
+    versions:
+    - 4.9.3
+  - dependency-name: saltpylint
+    versions:
+    - 2020.9.28
+  - dependency-name: whitenoise
+    versions:
+    - 5.2.0
