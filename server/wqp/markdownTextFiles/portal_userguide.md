@@ -289,6 +289,8 @@ The tables below list the metadata for each retrieval type.
 </details>
 
 #### ***Table 5.* "Project Data Only" Result Retrieval Metadata**
+
+Contains information about projects to monitor water quality. Contains project IDs, to allow joins with other tables.
 <details>
   <summary>View Table</summary>
 
@@ -308,6 +310,8 @@ The tables below list the metadata for each retrieval type.
 </details>
 
 #### ***Table 6.* "Project Monitoring Location Weighting" Result Retrieval Metadata**
+
+Contains information about locations where water quality monitoring was conducted. Includes information needed to display the locations in GIS software (latitude, longitude). Contains monitoring location IDs to allow joins with other tables.
 <details>
   <summary>View Table</summary>
 
@@ -340,6 +344,8 @@ The tables below list the metadata for each retrieval type.
 
 
 #### ***Table 7.* "Sample Results (Physical/Chemical)" Result Retrieval Metadata**
+
+Contains a comprehensive set of WQX 3.0 data elements to determine the physical and/or chemical condition of water. Contains some biological data elements necessary to determine toxicity. Contains monitoring location IDs, activity IDs, and project IDs to allow joins with other tables.
 <details>
   <summary>View Table</summary>
 
@@ -416,6 +422,8 @@ The tables below list the metadata for each retrieval type.
 </details>
 
 #### ***Table 8.* "Sample Results (Biological)" Result Retrieval Metadata**
+
+Contains a comprehensive set of WQX 3.0 data elements to determine the biological condition of water. Contains monitoring location IDs, activity IDs, and project IDs to allow joins with other tables. Does not contain data elements necessary to determine toxicity; see instead “Full Physical/Chemical Profile”.
 <details>
   <summary>View Table</summary>
 
@@ -643,9 +651,9 @@ This data profile contains minimal data from parts of the WQX data model that ar
 
 </details>
 
-
-
 #### ***Table 10.* "Sampling Activity" Result Retrieval Metadata**
+
+Contains information about water quality monitoring activities. Contains activity IDs, to allow joins with other tables.
 <details>
   <summary>View Table</summary>
 

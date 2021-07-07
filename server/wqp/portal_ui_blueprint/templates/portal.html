@@ -81,6 +81,7 @@
                     </div>
                   </div>
                   <div class="tablet:grid-col-3">
+                    <div id="bounding-box">
                     <div>
                     <label><strong>Bounding Box </strong></label><label class="tooltip" :title="boundingBoxTooltip"><i class="fa fa-info-circle"></i></label>
                     </div>
@@ -112,6 +113,7 @@
                       </div>
                       <input type="hidden" name="bBox" />
                     </div>
+                    </div>
                     <div class="tablet:grid-col-3">
                       <div id="site-params">
                         <div class="form-group">
@@ -139,7 +141,7 @@
                             <label class="control-label" for="siteid"><i class="fa fa-info-circle"></i></label>
                           </div>
                             <div>
-                              <select multiple id="siteid" name="siteid" data-placeholder="Optional"
+                              <select multiple id="siteid" input class="form-control" name="siteid" data-placeholder="Optional"
                                 style="width: 90%"></select>
                             </div>
                           </div>
@@ -436,7 +438,7 @@
                           style="float: right"
                           aria-controls="example-modal-1"
                           data-open-modal
-                          >Show Web Service Calls</a
+                          >Web Service Calls</a
                         >
                         <div
                           class="usa-modal"
@@ -447,7 +449,7 @@
                           <div class="usa-modal__content">
                             <div class="usa-modal__main">
                               <h2 class="usa-modal__heading" id="modal-1-heading">
-                                Web Service Calls
+                                Web Service Calls (Current Query)
                               </h2>
                               <div class="usa-prose">
                                 <p id="modal-1-description">
@@ -466,6 +468,11 @@
                                       <b>WFS GetFeature</b>
                                       <br />
                                       <textarea class="usa-textarea" readonly="readonly" rows="6">https://www.waterqualitydata.us/ogcservices/wfs/?request=GetFeature&service=wfs&version=2.0.0&typeNames=wqp_sites&SEARCHPARAMS=countrycode%3AUS%3Bstatecode%3AUS%3A04%3BsiteType%3AAggregate%20surface-water-use&outputFormat=application%2Fjson</textarea>
+                                    </div>
+                                    <div class="show-query-text" id="geojson-query-div">
+                                      <b>GeoJSON</b>
+                                      <br />
+                                      <textarea class="usa-textarea" readonly="readonly" rows="6">https://www.waterqualitydata.us/data/Station/search?countrycode=US&statecode=US%3A04&siteType=Aggregate%20surface-water-use&mimeType=geojson&zip=yes</textarea>
                                     </div>
                                   </div>
                                 </p>
