@@ -1,3 +1,4 @@
+import './portal_ui/copyToClipboard';
 import './portal_ui/dateValidatorSpec';
 import './portal_ui/downloadFormControllerSpec';
 import './portal_ui/downloadProgressDialogSpec';

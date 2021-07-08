@@ -1,6 +1,9 @@
 {% extends 'base.html' %} {% block page_header_title %}Water Quality Data{%
   endblock %} {% block page_content %}
-  
+
+  {% block custom_style %}
+  <link rel="stylesheet" href="{{ 'custom.css' | asset_url }}">
+{% endblock %}
   <div id="page-content">
     <div id="app">
       <form role="form" id="params" name="params" autocomplete="off" method="post" action="
@@ -20,12 +23,14 @@
                 </button>
               </h4>
               <div id="a1" class="usa-accordion__content usa-prose">
-                <div>Use the location parameters to describe the spatial extent of the desired dataset.</div>
+                <div>Use the location parameters to describe the spatial extent of the desired dataset.
+                </div>
                 <br>
                 <div class="grid-row grid-gap">
                   <div class="tablet:grid-col-3">
                     <div class="form-group">
-                      <label><strong>Country </strong></label><label class="tooltip" class="control-label" for="control-label" :title="countryTooltip"><i class="fa fa-info-circle"></i></label>
+                      <label><strong>Country </strong></label><label class="tooltip" class="control-label" for="control-label" :title="countryTooltip"><span style="color: #565c65
+                        ;"><i class="fa fa-info-circle"></i></span></label>
                       <div>
                         <select multiple class="form-control" id="countrycode" name="countrycode" data-placeholder="Optional"
                           style="width: 90%"></select>
@@ -33,7 +38,7 @@
                     </div>
                     <br>
                     <div class="form-group">
-                      <label><strong>State </strong></label><label class="tooltip" class="control-label" for="statecode" :title="stateTooltip"><i class="fa fa-info-circle"></i></label>
+                      <label><strong>State </strong></label><label class="tooltip" class="control-label" for="statecode" :title="stateTooltip"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                       <div>
                         <select multiple class="form-control" id="statecode" name="statecode" data-placeholder="Optional"
                           style="width: 90%"></select>
@@ -41,7 +46,7 @@
                     </div>
                     <br>
                     <div class="form-group">
-                      <label><strong>County </strong></label><label class="tooltip" class="control-label" for="countycode" :title="countyTooltip"><i class="fa fa-info-circle"></i></label>
+                      <label><strong>County </strong></label><label class="tooltip" class="control-label" for="countycode" :title="countyTooltip"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                       <div>
                         <select multiple class="form-control" id="countycode" name="countycode" data-placeholder="Optional"
                           style="width: 90%"></select>
@@ -51,7 +56,7 @@
                   <div class="tablet:grid-col-3">
                     <div id="point-location">
                       <div>
-                        <label><strong>Point Location </strong></label><label class="tooltip" :title="pointLocationTooltip"><i class="fa fa-info-circle"></i></label>
+                        <label><strong>Point Location </strong></label><label class="tooltip" :title="pointLocationTooltip"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                       </div>
                       <div>
                         <div class="form-group">
@@ -83,7 +88,7 @@
                   <div class="tablet:grid-col-3">
                     <div id="bounding-box">
                     <div>
-                    <label><strong>Bounding Box </strong></label><label class="tooltip" :title="boundingBoxTooltip"><i class="fa fa-info-circle"></i></label>
+                    <label><strong>Bounding Box </strong></label><label class="tooltip" :title="boundingBoxTooltip"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                     </div>
                       <div>
                         <div class="form-group">
@@ -118,7 +123,7 @@
                       <div id="site-params">
                         <div class="form-group">
                           <label><strong>Site Type </strong></label><div class="tooltip" :title="siteTypeTooltip">
-                            <label class="control-label" for="siteType"><i class="fa fa-info-circle"></i></label>
+                            <label class="control-label" for="siteType"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                           </div>
                             <div>
                               <select multiple id="siteType" name="siteType" data-placeholder="Optional"
@@ -128,7 +133,7 @@
                           <br>
                         <div class="form-group">
                           <label><strong>Organization ID </strong></label><div class="tooltip" :title="orgIDTooltip">
-                            <label class="control-label" for="organization"><i class="fa fa-info-circle"></i></label>
+                            <label class="control-label" for="organization"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                           </div>
                             <div>
                               <select multiple id="organization" name="organization"
@@ -138,7 +143,7 @@
                           <br>
                         <div class="form-group">
                           <label><strong>Site ID </strong></label><div class="tooltip" :title="siteIDTooltip">
-                            <label class="control-label" for="siteid"><i class="fa fa-info-circle"></i></label>
+                            <label class="control-label" for="siteid"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                           </div>
                             <div>
                               <select multiple id="siteid" input class="form-control" name="siteid" data-placeholder="Optional"
@@ -148,7 +153,7 @@
                           <br>
                         <div class="form-group">
                           <label><strong>HUC </strong></label><div class="tooltip" :title="hucTooltip">
-                            <label class="control-label" for="huc"><i class="fa fa-info-circle"></i></label>
+                            <label class="control-label" for="huc"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                           </div>
                             <div>
                               <input class="form-control" type="text" name="huc" id="huc" data-multiple="true" placeholder="Optional" size="16" />
@@ -179,7 +184,7 @@
                           <div class="grid-row grid-gap">
                             <div class="tablet:grid-col-4">
                                 <label><strong>Sample Media </strong></label><div class="tooltip" :title="sampleMediaTooltip">
-                                <label class="control-label" for="sampleMedia"><i class="fa fa-info-circle"></i></label>
+                                <label class="control-label" for="sampleMedia"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                                 </div>
                                 <div>
                                   <select multiple class="form-control" name="sampleMedia" id="sampleMedia"
@@ -187,7 +192,7 @@
                               </div>
                               <br>
                               <label><strong>Characteristic Group </strong></label><div class="tooltip" :title="charGroupTooltip">
-                                <label class="control-label" for="characteristicType"><i class="fa fa-info-circle"></i></label>
+                                <label class="control-label" for="characteristicType"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                               </div>
                                 <div>
                                   <select multiple class="form-control" name="characteristicType" id="characteristicType"
@@ -195,7 +200,7 @@
                                 </div>
                                 <br>
                               <label><strong>Characteristics </strong></label><div class="tooltip" :title="characteristicsTooltip">
-                                <label class="control-label" for="characteristicName"><i class="fa fa-info-circle"></i></label>
+                                <label class="control-label" for="characteristicName"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                               </div>
                                 <div>
                                   <select multiple class="form-control" name="characteristicName" id="characteristicName"
@@ -203,7 +208,7 @@
                                 </div>
                               <br>
                               <label><strong>Project ID </strong></label><div class="tooltip" :title="projectIDTooltip">
-                                <label class="control-label" for="project-code"><i class="fa fa-info-circle"></i></label>
+                                <label class="control-label" for="project-code"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                               </div>
                                 <div>
                                   <select multiple class="form-control" name="project" id="project-code"
@@ -213,7 +218,7 @@
                                 <div class="tablet:grid-col-4">
                               <label><strong>Parameter Code</strong>
                                   <span style="font-size: x-small">(NWIS ONLY) </span></label><div class="tooltip" id="pcode-div" :title="paramCodeTooltip">
-                                <label class="control-label" for="pCode"><i class="fa fa-info-circle"></i></label>
+                                <label class="control-label" for="pCode"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                                   </div>
                                 <div>
                                   <input class="form-control usa-label" type="text" size="23" placeholder="Optional" name="pCode" id="pCode"
@@ -223,12 +228,12 @@
                           <div id="biological" class="subpanel">
                             <label><strong>Biological Sampling Parameters </strong><div class="tooltip" :title="bioSamplingTooltip">
                             <div class="subpanel-heading">
-                              <i class="fa fa-info-circle"></i>
+                              <span style="color: #565c65;"><i class="fa fa-info-circle"></i></span>
                             </div>
                           </div>
                             <div class="subpanel-body">
                               <label><strong>Assemblage </strong></label><div class="tooltip" :title="assemblageTooltip">
-                                <label for="assemblage"><i class="fa fa-info-circle"></i></label>
+                                <label for="assemblage"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                               </div>
                                 <div>
                                   <select multiple name="assemblage" id="assemblage"
@@ -237,7 +242,7 @@
                                 <br>
                               <div class="form-group">
                                 <label><strong>Taxonomic
-                                  Name </strong></label><label class="tooltip" for="subjectTaxonomicName" :title="taxNameTooltip"><i class="fa fa-info-circle"></i></label>
+                                  Name </strong></label><label class="tooltip" for="subjectTaxonomicName" :title="taxNameTooltip"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                                 <div>
                                   <select multiple name="subjectTaxonomicName" aria-label="Select a taxonomic name"
                                     id="subject-taxonomic-name" data-placeholder="Optional" style="width: 90%"></select>
@@ -250,7 +255,7 @@
                       <div id="date-row">
                         <div id="start-date-select">
                           <label><strong>Date range </strong>(mm/dd/yyyy) </label><div class="tooltip" :title="dateRangeTooltip">
-                            <label for="startDateLo"><i class="fa fa-info-circle"></i></label>
+                            <label for="startDateLo"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                           </div>
                               <div>
                                 <div>
@@ -271,7 +276,7 @@
                       <br>
                       <div id="min-activities-parameters-div">
                         <label><strong>Minimum sampling activities per site </strong></label><div class="tooltip" id="min-activities-div" :title="minSamplingTooltip">
-                          <label class="control-label" for="min-activities"><i class="fa fa-info-circle"></i></label>
+                          <label class="control-label" for="min-activities"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                         </div>
                           <div>
                             <input class="form-control" type="number" min="1" name="minactivities" id="min-activities" placeholder="Optional" size="25" />
@@ -279,7 +284,7 @@
                       </div>
                       <br>
                         <label><strong>Minimum results per site </strong></label><div class="tooltip" id="minresults-div" :title="minimumResultsTooltip">
-                          <label class="control-label" for="minresults"><i class="fa fa-info-circle"></i></label>
+                          <label class="control-label" for="minresults"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                         </div>
                           <div>
                             <input class="form-control" type="number" min="1" name="minresults"
@@ -312,7 +317,7 @@
                       <div id="databases-row">
                         <div id="select">
                           <label><strong>Data Source </strong></label><div class="tooltip" :title="databasesTooltip">
-                            <label for="dataSource"><i class="fa fa-info-circle"></i></label>
+                            <label for="dataSource"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                           </div>
                           <fieldset class="usa-fieldset">
                             <div class="usa-checkbox">
@@ -337,7 +342,7 @@
                       <div id="download-tabular-data">
                         <fieldset class="usa-fieldset">
                           <label><strong>File Format </strong></label><div class="tooltip" :title="fileFormatTooltip">
-                            <label for="dataSource"><i class="fa fa-info-circle"></i></label>
+                            <label for="dataSource"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                           </div>
                           <div class="usa-radio">
                             <input class="usa-radio__input" id="csv" type="radio" name="mimeType" value="csv"
@@ -358,7 +363,7 @@
                       <div id="download-sorted-data-div">
                         <input class="control-label" type="checkbox" id="sorted" />
                         <label><strong>Sort data </strong></label><div class="tooltip" :title="sortDataTooltip">
-                          <label class="control-label" for="sorted"><i class="fa fa-info-circle"></i></label>
+                          <label class="control-label" for="sorted"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                         </div>
                       <input type="hidden" name="zip" id="zip" value="yes" />
                       <input type="hidden" name="sorted" id="hidden-sorted" value="no" />
@@ -367,7 +372,7 @@
                     <div id="download-data-kind-box" class="tablet:grid-col-5">
                       <fieldset class="usa-fieldset">
                       <label><strong>Data to Download </strong></label><div class="tooltip" id="download-data-div" :title="dataDownloadTooltip">
-                        <label class="control-label" for="dataSource"><i class="fa fa-info-circle"></i></label>
+                        <label class="control-label" for="dataSource"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                       </div>
                         <div class="usa-radio">
                           <input class="result-type usa-radio__input" name="download" id="organizationid" type="radio"
@@ -429,9 +434,35 @@
                         <button type="button" class="usa-button usa-button--outline">
                           Copy Current URL
                         </button>
-                        <!-- <textarea class="usa-textarea" readonly rows="3"></textarea> -->
+                        <textarea class="usa-textarea" readonly rows="3"></textarea>
                       </div>
-                      <div class="web-service-container">
+                      <div class="usa-nav-container">
+                      <nav aria-label="Web Services Navigation" class="usa-nav">
+                        <button class="usa-nav__close"><img src="{{ 'img/close.svg' | asset_url }}" role="img" alt="close"></button>
+                    <ul class="usa-nav__primary usa-accordion">
+              
+                      <li class="usa-nav__primary-item">
+                        <button class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="basic-nav-section-three"><span>Web Services Calls</span></button>
+                        <ul id="basic-nav-section-three" class="usa-nav__submenu">
+                        <li class="usa-nav__submenu-item">
+                                  <a href="https://www.waterqualitydata.us/data/Station/search?countrycode=US&statecode=US%3A04&siteType=Aggregate%20surface-water-use&mimeType=csv&zip=yes" class="">Result/Station</a>
+                              </li>
+                        <li class="usa-nav__submenu-item">
+                                  <a href="https://www.waterqualitydata.us/data/Station/search?mimeType=csv&zip=yes" class="">cURL</a>
+                              </li>
+                        <li class="usa-nav__submenu-item">
+                                  <a href="https://www.waterqualitydata.us/ogcservices/wfs/?request=GetFeature&service=wfs&version=2.0.0&typeNames=wqp_sites&SEARCHPARAMS=countrycode%3AUS%3Bstatecode%3AUS%3A04%3BsiteType%3AAggregate%20surface-water-use&outputFormat=application%2Fjson" class="">WFS GetFeature</a>
+                              </li>
+                        <li class="usa-nav__submenu-item">
+                                <a href="https://www.waterqualitydata.us/data/Station/search?countrycode=US&statecode=US%3A04&siteType=Aggregate%20surface-water-use&mimeType=geojson&zip=yes" class="">GeoJSON</a>
+                            </li>
+                      </ul>
+                    </li>
+                  </ul>
+                      </nav>
+                    </div>
+
+                      <!-- <div class="web-service-container">
                         <a
                           href="#example-modal-1"
                           class="usa-button usa-button--outline"
@@ -506,7 +537,7 @@
                     <div class="tablet:grid-col-9">
                     </div>
                     <div id="map-and-query-div" class="tablet:grid-col-3">
-                      <!-- <div id="mapping-div" class="panel-body">
+                      <div id="mapping-div" class="panel-body">
                         <div id="map-ops-button-div" class="form-inline">
                           <div id="show-on-map-button-div" class="form-group">
                             <button type="button" class="usa-button usa-button--outline" id="show-on-map-button">
@@ -531,7 +562,63 @@
                           </div>
                           <div id="map-popover" title="Detailed site information" data-trigger="focus"></div>
                         </div>
-                      </div> -->
+                      </div> 
+                      <div id="api-queries-div">
+                        <a href="#arcgis-online-modal" class="usa-button usa-button--outline" id="show-arcgis-online-help" type="button" aria-controls="arcgis-online-modal" data-open-modal>
+                          Show ArcGIS Online Parameters
+                        </a>
+                        <div class="usa-modal usa-modal--lg" id="arcgis-online-modal" aria-labelledby="modal-2-heading" aria-describedby="modal-2-description">
+                          <div class="usa-modal__content">
+                            <div class="usa-modal__main">
+                              <h2 class="usa-modal__heading" id="modal-2-heading">
+                                Are you sure you want to continue?
+                              </h2>
+                              <div class="usa-prose">
+                                <p id="modal-2-description">You have unsaved changes that will be lost.</p>
+                              </div>
+                              <div class="usa-modal__footer">
+                                <ul class="usa-button-group">
+                                  <li class="usa-button-group__item">
+                                      <button type="button" class="usa-button" data-close-modal>Continue without saving</button>
+                                    </li>
+                                  <li class="usa-button-group__item">
+                                      <button type="button" class="usa-button usa-button--unstyled padding-105 text-center" data-close-modal>Go back</button>
+                                    </li>
+                                  </ul>
+                              </div>
+                            </div>
+                            <button class="usa-button usa-modal__close" aria-label="Close this window" data-close-modal>
+                              
+                        <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                          <use xlink:href="/assets/img/sprite.svg#close"></use>
+                        </svg>
+                      
+                              </button>
+                            </div>
+                        </div>
+                        &nbsp;
+                        <button class="usa-button usa-button--outline" id="show-queries-button" type="button">
+                          Show Web Service Calls
+                        </button>
+                        &nbsp;
+                        <div id="api-queries-div">
+                          <div class="show-query-text" id="query-div">
+                            <b></b>
+                            <br />
+                            <textarea class="usa-textarea" readonly rows="3"></textarea>
+                          </div>
+                          <div class="show-query-text" id="curl-query-div">
+                            <b>cURL</b>
+                            <br />
+                            <textarea class="usa-textarea" readonly="readonly" rows="6"></textarea>
+                          </div>
+                          <div class="show-query-text" id="getfeature-query-div">
+                            <b>WFS GetFeature</b>
+                            <br />
+                            <textarea class="usa-textarea" readonly="readonly" rows="6"></textarea>
+                          </div>
+                        </div>
+                      </div>
                       <div id="form-action">
                         <a href="#download-status-modal" id="main-button" class="usa-button" type="submit" aria-controls="example-modal-1" style="float: right;">
                           DOWNLOAD
@@ -567,73 +654,6 @@
                         </div>
                       </div>
                     </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- <div class="grid-col">
-          <div class="usa-accordion">
-            <h4 class="usa-accordion__heading">
-              <button class="usa-accordion__button" aria-expanded="true" aria-controls="a5">
-                Show Queries
-              </button>
-            </h4>
-            <div id="a5" class="usa-accordion__content usa-prose">
-              <div id="show-queries-div" class="grid-col">
-                <a href="#arcgis-online-modal" class="usa-button usa-button--outline" id="show-arcgis-online-help" type="button" aria-controls="arcgis-online-modal" data-open-modal>
-                  Show ArcGIS Online Parameters
-                </a>
-                <div class="usa-modal usa-modal--lg" id="arcgis-online-modal" aria-labelledby="modal-2-heading" aria-describedby="modal-2-description">
-                  <div class="usa-modal__content">
-                    <div class="usa-modal__main">
-                      <h2 class="usa-modal__heading" id="modal-2-heading">
-                        Are you sure you want to continue?
-                      </h2>
-                      <div class="usa-prose">
-                        <p id="modal-2-description">You have unsaved changes that will be lost.</p>
-                      </div>
-                      <div class="usa-modal__footer">
-                        <ul class="usa-button-group">
-                          <li class="usa-button-group__item">
-                              <button type="button" class="usa-button" data-close-modal>Continue without saving</button>
-                            </li>
-                          <li class="usa-button-group__item">
-                              <button type="button" class="usa-button usa-button--unstyled padding-105 text-center" data-close-modal>Go back</button>
-                            </li>
-                          </ul>
-                      </div>
-                    </div>
-                    <button class="usa-button usa-modal__close" aria-label="Close this window" data-close-modal>
-                      
-                <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                  <use xlink:href="/assets/img/sprite.svg#close"></use>
-                </svg>
-              
-                      </button>
-                    </div>
-                </div>
-                &nbsp;
-                <button class="usa-button usa-button--outline" id="show-queries-button" type="button">
-                  Show Web Service Calls
-                </button>
-                &nbsp;
-                <div id="api-queries-div">
-                  <div class="show-query-text" id="query-div">
-                    <b></b>
-                    <br />
-                    <textarea class="usa-textarea" readonly="readonly" rows="6"></textarea>
-                  </div>
-                  <div class="show-query-text" id="curl-query-div">
-                    <b>cURL</b>
-                    <br />
-                    <textarea class="usa-textarea" readonly="readonly" rows="6"></textarea>
-                  </div>
-                  <div class="show-query-text" id="getfeature-query-div">
-                    <b>WFS GetFeature</b>
-                    <br />
-                    <textarea class="usa-textarea" readonly="readonly" rows="6"></textarea>
-                  </div>
                 </div>
               </div>
             </div>
