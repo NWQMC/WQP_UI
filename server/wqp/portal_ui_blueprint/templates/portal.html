@@ -1,9 +1,6 @@
 {% extends 'base.html' %} {% block page_header_title %}Water Quality Data{%
   endblock %} {% block page_content %}
 
-  {% block custom_style %}
-  <link rel="stylesheet" href="{{ 'custom.css' | asset_url }}">
-{% endblock %}
   <div id="page-content">
     <div id="app">
       <form role="form" id="params" name="params" autocomplete="off" method="post" action="
@@ -29,8 +26,8 @@
                 <div class="grid-row grid-gap">
                   <div class="tablet:grid-col-3">
                     <div class="form-group">
-                      <label><strong>Country </strong></label><label class="tooltip" class="control-label" for="control-label" :title="countryTooltip"><span style="color: #565c65
-                        ;"><i class="fa fa-info-circle"></i></span></label>
+                      <div class="tooltip-hover"><label><strong>Country </strong></label><label class="tooltip" class="control-label" for="control-label" :title="countryTooltip"><span style="color: #565c65
+                        ;"><i class="fa fa-info-circle"></i></span></label></div>
                       <div>
                         <select multiple class="form-control" id="countrycode" name="countrycode" data-placeholder="Optional"
                           style="width: 90%"></select>
@@ -300,436 +297,335 @@
       </div>
     </div>
   </div>
-      <div id="downloadParams">
-        <div class="grid-col">
-          <div class="usa-accordion">
-            <h4 class="usa-accordion__heading">
-              <button class="usa-accordion__button" aria-expanded="true" aria-controls="a4">
-                Download the Data
-              </button>
-            </h4>
-            <div id="a4" class="usa-accordion__content usa-prose">
-              <div>Use the download parameters to specify download preferences.</div>
-              <br>
-              <div>
-                <div id="download-box" class="grid-row grid-gap">
-                    <div id="data-type-parameters-div" class="tablet:grid-col-3">
-                      <div id="databases-row">
-                        <div id="select">
-                          <label><strong>Data Source </strong></label><div class="tooltip" :title="databasesTooltip">
-                            <label for="dataSource"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
-                          </div>
-                          <fieldset class="usa-fieldset">
-                            <div class="usa-checkbox">
-                              <input class="datasources usa-checkbox__input" id="nwis" type="checkbox" name="providers"
-                                value="NWIS" checked />
-                              <label class="usa-checkbox__label" for="nwis">NWIS</label>
-                            </div>
-                            <div class="usa-checkbox">
-                              <input class="datasources usa-checkbox__input" id="stewards" type="checkbox"
-                                name="providers" value="STEWARDS" checked />
-                              <label class="usa-checkbox__label" for="stewards">STEWARDS</label>
-                            </div>
-                            <div class="usa-checkbox">
-                              <input class="datasources usa-checkbox__input" id="stortet" type="checkbox" name="providers"
-                                value="EPA" checked />
-                              <label class="usa-checkbox__label" for="stortet">EPA</label>
-                            </div>
-                          </fieldset>
-                        </div>
-                      </div>
-                      <br>
-                      <div id="download-tabular-data">
-                        <fieldset class="usa-fieldset">
-                          <label><strong>File Format </strong></label><div class="tooltip" :title="fileFormatTooltip">
-                            <label for="dataSource"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
-                          </div>
-                          <div class="usa-radio">
-                            <input class="usa-radio__input" id="csv" type="radio" name="mimeType" value="csv"
-                              checked="checked" />
-                            <label class="usa-radio__label" for="csv">Comma-separated</label>
-                          </div>
-                          <div class="usa-radio">
-                            <input class="usa-radio__input" id="tsv" type="radio" name="mimeType" value="tsv" />
-                            <label class="usa-radio__label" for="tsv">Tab-separated</label>
-                          </div>
-                          <div class="usa-radio">
-                            <input class="usa-radio__input" id="xlsx" type="radio" name="mimeType" value="xlsx" />
-                            <label class="usa-radio__label" for="xlsx">MS Excel 2007+</label>
-                          </div>
-                        </fieldset>
-                      </div>
-                      <br>
-                      <div id="download-sorted-data-div">
-                        <input class="control-label" type="checkbox" id="sorted" />
-                        <label><strong>Sort data </strong></label><div class="tooltip" :title="sortDataTooltip">
-                          <label class="control-label" for="sorted"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
-                        </div>
-                      <input type="hidden" name="zip" id="zip" value="yes" />
-                      <input type="hidden" name="sorted" id="hidden-sorted" value="no" />
-                      </div>
+  <div class="grid-col">
+    <div class="usa-accordion">
+      <h4 class="usa-accordion__heading">
+        <button class="usa-accordion__button" aria-expanded="true" aria-controls="a3">
+          Download the Data
+        </button>
+      </h4>
+      <div id="a3" class="usa-accordion__content usa-prose">
+        <div>
+          <div id="download-box" class="grid-row grid-gap">
+            <div id="download-box-input-div" class="grid-row grid-gap">
+              <div id="data-type-parameters-div" class="tablet:grid-col-3">
+                <div class="panel-body">
+                  <div class="form-group">
+                    <label><strong>Data Source </strong></label><div class="tooltip" :title="databasesTooltip">
+                      <label for="dataSource"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                     </div>
-                    <div id="download-data-kind-box" class="tablet:grid-col-5">
-                      <fieldset class="usa-fieldset">
-                      <label><strong>Data to Download </strong></label><div class="tooltip" id="download-data-div" :title="dataDownloadTooltip">
-                        <label class="control-label" for="dataSource"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
+                    <fieldset class="usa-fieldset">
+                      <div class="usa-checkbox">
+                        <input class="datasources usa-checkbox__input" id="nwis" type="checkbox" name="providers"
+                          value="NWIS" checked />
+                        <label class="usa-checkbox__label" for="nwis">NWIS</label>
                       </div>
-                        <div class="usa-radio">
-                          <input class="result-type usa-radio__input" name="download" id="organizationid" type="radio"
-                            value="Organization" />
-                          <label class="usa-radio__label" for="organizationid">Organization Data</label>
-                        </div>
-                        <div class="usa-radio">
-                          <input checked="checked" type="radio" class="result-type usa-radio__input" name="download" id="sites"
-                            type="radio" value="Station" />
-                          <label class="usa-radio__label" for="sites">Site data only</label>
-                        </div>
-                        <div class="usa-radio">
-                          <input class="result-type usa-radio__input" name="download" id="projects" type="radio" value="Project" />
-                          <label class="usa-radio__label" for="projects">Project data</label>
-                        </div>
-                        <div class="usa-radio">
-                          <input class="result-type usa-radio__input" name="download" id="proj-mon-weight" type="radio"
-                            value="ProjectMonitoringLocationWeighting" />
-                          <label class="usa-radio__label" for="proj-mon-weight">Project Monitoring Location Weighting
-                            data</label>
-                        </div>
-                        <div class="usa-radio">
-                          <input class="result-type usa-radio__input" name="download" id="samples" type="radio" value="Result" />
-                          <label class="usa-radio__label" for="samples">Sample results (physical/chemical
-                            metadata)</label>
-                        </div>
-                        <div class="usa-radio">
-                          <input class="result-type usa-radio__input" name="download" id="biosamples" type="radio" value="Result" />
-                          <label class="usa-radio__label" for="biosamples">Sample results (biological metadata)</label>
-                        </div>
-                        <div class="usa-radio">
-                          <input class="result-type usa-radio__input" name="download" id="narrowsamples" type="radio" value="Result" />
-                          <label class="usa-radio__label" for="narrowsamples">Sample results (narrow)</label>
-                        </div>
-                        <div class="usa-radio">
-                          <input class="result-type usa-radio__input" name="download" id="activity-input" type="radio" value="Activity" />
-                          <label class="usa-radio__label" for="activity-input">Sampling Activity</label>
-                        </div>
-                        <div class="usa-radio">
-                          <input class="result-type usa-radio__input" name="download" id="activitymetric-input" type="radio"
-                            value="ActivityMetric" />
-                          <label class="usa-radio__label" for="activitymetric-input">Sampling Activity Metrics</label>
-                        </div>
-                        <div class="usa-radio">
-                          <input class="result-type usa-radio__input" name="download" id="resultdetection" type="radio"
-                            value="ResultDetectionQuantitationLimit" />
-                          <label class="usa-radio__label" for="resultdetection">Result Detection Quantitation Limit
-                            Data</label>
-                        </div>
-                        <div class="usa-radio">
-                          <input class="result-type usa-radio__input" name="download" id="biologicalHabitatMetric" type="radio"
-                            value="biologicalHabitatMetric" />
-                          <label class="usa-radio__label" for="biologicalHabitatMetric">Biological Habitat Metrics</label>
-                        </div>
-                      </fieldset>
+                      <div class="usa-checkbox">
+                        <input class="datasources usa-checkbox__input" id="stewards" type="checkbox"
+                          name="providers" value="STEWARDS" checked />
+                        <label class="usa-checkbox__label" for="stewards">STEWARDS</label>
+                      </div>
+                      <div class="usa-checkbox">
+                        <input class="datasources usa-checkbox__input" id="storet" type="checkbox" name="providers"
+                          value="STORET" checked />
+                        <label class="usa-checkbox__label" for="storet">EPA</label>
+                      </div>
+                    </fieldset>
+                  </div>
+                  <br>
+                  <div id="download-tabular-data">
+                    <label><strong>File Format </strong></label><div class="tooltip" :title="fileFormatTooltip">
+                      <label for="dataSource"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                     </div>
-                    <div class="tablet:grid-col-4">
-                      <div class="share-container" style="padding-top: 5px; padding-bottom: 5px; float: right;">
-                        <button type="button" class="usa-button usa-button--outline">
-                          Copy Current URL
-                        </button>
-                        <textarea class="usa-textarea" readonly rows="3"></textarea>
+                    <fieldset class="usa-fieldset">
+                      <div class="usa-radio">
+                        <input class="usa-radio__input" id="csv" type="radio" name="mimeType" value="csv"
+                          checked="checked" />
+                        <label class="usa-radio__label" for="csv">Comma-separated</label>
                       </div>
-                      <div class="usa-nav-container">
-                      <nav aria-label="Web Services Navigation" class="usa-nav">
-                        <button class="usa-nav__close"><img src="{{ 'img/close.svg' | asset_url }}" role="img" alt="close"></button>
-                    <ul class="usa-nav__primary usa-accordion">
-              
-                      <li class="usa-nav__primary-item">
-                        <button class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="basic-nav-section-three"><span>Web Services Calls</span></button>
-                        <ul id="basic-nav-section-three" class="usa-nav__submenu">
-                        <li class="usa-nav__submenu-item">
-                                  <a href="https://www.waterqualitydata.us/data/Station/search?countrycode=US&statecode=US%3A04&siteType=Aggregate%20surface-water-use&mimeType=csv&zip=yes" class="">Result/Station</a>
-                              </li>
-                        <li class="usa-nav__submenu-item">
-                                  <a href="https://www.waterqualitydata.us/data/Station/search?mimeType=csv&zip=yes" class="">cURL</a>
-                              </li>
-                        <li class="usa-nav__submenu-item">
-                                  <a href="https://www.waterqualitydata.us/ogcservices/wfs/?request=GetFeature&service=wfs&version=2.0.0&typeNames=wqp_sites&SEARCHPARAMS=countrycode%3AUS%3Bstatecode%3AUS%3A04%3BsiteType%3AAggregate%20surface-water-use&outputFormat=application%2Fjson" class="">WFS GetFeature</a>
-                              </li>
-                        <li class="usa-nav__submenu-item">
-                                <a href="https://www.waterqualitydata.us/data/Station/search?countrycode=US&statecode=US%3A04&siteType=Aggregate%20surface-water-use&mimeType=geojson&zip=yes" class="">GeoJSON</a>
-                            </li>
-                      </ul>
-                    </li>
-                  </ul>
-                      </nav>
-                    </div>
-
-                      <!-- <div class="web-service-container">
-                        <a
-                          href="#example-modal-1"
-                          class="usa-button usa-button--outline"
-                          style="float: right"
-                          aria-controls="example-modal-1"
-                          data-open-modal
-                          >Web Service Calls</a
-                        >
-                        <div
-                          class="usa-modal"
-                          id="example-modal-1"
-                          aria-labelledby="modal-1-heading"
-                          aria-describedby="modal-1-description"
-                        >
-                          <div class="usa-modal__content">
-                            <div class="usa-modal__main">
-                              <h2 class="usa-modal__heading" id="modal-1-heading">
-                                Web Service Calls (Current Query)
-                              </h2>
-                              <div class="usa-prose">
-                                <p id="modal-1-description">
-                                  <div id="api-queries-div">
-                                    <div class="show-query-text" id="query-div">
-                                      <b>Result/Station</b>
-                                      <br />
-                                      <textarea class="usa-textarea" readonly="readonly" rows="6">https://www.waterqualitydata.us/data/Station/search?countrycode=US&statecode=US%3A04&siteType=Aggregate%20surface-water-use&mimeType=csv&zip=yes</textarea>
-                                    </div>
-                                    <div class="show-query-text" id="curl-query-div">
-                                      <b>cURL</b>
-                                      <br />
-                                      <textarea class="usa-textarea" readonly="readonly" rows="6">curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/zip' -d '{"countrycode":["US"],"statecode":["US:04"],"siteType":["Aggregate surface-water-use"]}' 'https://www.waterqualitydata.us/data/Station/search?mimeType=csv&zip=yes'</textarea>
-                                    </div>
-                                    <div class="show-query-text" id="getfeature-query-div">
-                                      <b>WFS GetFeature</b>
-                                      <br />
-                                      <textarea class="usa-textarea" readonly="readonly" rows="6">https://www.waterqualitydata.us/ogcservices/wfs/?request=GetFeature&service=wfs&version=2.0.0&typeNames=wqp_sites&SEARCHPARAMS=countrycode%3AUS%3Bstatecode%3AUS%3A04%3BsiteType%3AAggregate%20surface-water-use&outputFormat=application%2Fjson</textarea>
-                                    </div>
-                                    <div class="show-query-text" id="geojson-query-div">
-                                      <b>GeoJSON</b>
-                                      <br />
-                                      <textarea class="usa-textarea" readonly="readonly" rows="6">https://www.waterqualitydata.us/data/Station/search?countrycode=US&statecode=US%3A04&siteType=Aggregate%20surface-water-use&mimeType=geojson&zip=yes</textarea>
-                                    </div>
-                                  </div>
-                                </p>
-                              </div>
-                              <div class="usa-modal__footer">
-                                <ul class="usa-button-group">
-                                  <li class="usa-button-group__item">
-                                    <button type="button" class="usa-button" data-close-modal>
-                                      Close
-                                    </button>
-                                  </li>
-                                </ul>
-                              </div>
-                            </div>
-                            <button
-                              class="usa-button usa-modal__close"
-                              aria-label="Close this window"
-                              data-close-modal
-                            >
-                              <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                                <use xlink:href="/assets/img/sprite.svg#close"></use>
-                              </svg>
-                            </button>
-                          </div>
-                        </div>
+                      <div class="usa-radio">
+                        <input class="usa-radio__input" id="tsv" type="radio" name="mimeType" value="tsv" />
+                        <label class="usa-radio__label" for="tsv">Tab-separated</label>
                       </div>
-                     </div>
+                      <div class="usa-radio">
+                        <input class="usa-radio__input" id="xlsx" type="radio" name="mimeType" value="xlsx" />
+                        <label class="usa-radio__label" for="xlsx">MS Excel 2007+</label>
+                      </div>
+                    </fieldset>
+                  </div>
+                  <br>
+                  <div id="download-sorted-data-div">
+                    <input type="checkbox" id="sorted" />
+                    <label><strong>Sort data </strong></label><div class="tooltip" :title="sortDataTooltip">
+                      <label class="control-label" for="sorted"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                     </div>
                   </div>
-                  <div class="grid-row grid-gap">
-                    <div class="tablet:grid-col-9">
+                  <input type="hidden" name="zip" id="zip" value="yes" />
+                  <input type="hidden" name="sorted" id="hidden-sorted" value="no" />
+                </div>
+              </div>
+              <div id="download-data-kind-box" class="tablet:grid-col-5">
+                <label><strong>Data to Download </strong></label><div class="tooltip" id="download-data-div" :title="dataDownloadTooltip">
+                  <label class="control-label" for="dataSource"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
+                </div>
+                <fieldset class="usa-fieldset">
+                  <div class="usa-radio">
+                    <input class="result-type usa-radio__input" id="organization" type="radio"
+                      value="Organization" />
+                    <label class="usa-radio__label" for="organization">Organization Data</label>
+                  </div>
+                  <div class="usa-radio">
+                    <input checked="checked" type="radio" class="result-type usa-radio__input" id="sites"
+                      type="radio" value="Station" />
+                    <label class="usa-radio__label" for="sites">Site data only</label>
+                  </div>
+                  <div class="usa-radio">
+                    <input class="result-type usa-radio__input" id="projects" type="radio" value="Project" />
+                    <label class="usa-radio__label" for="projects">Project data</label>
+                  </div>
+                  <div class="usa-radio">
+                    <input class="result-type usa-radio__input" id="proj-mon-weight" type="radio"
+                      value="ProjectMonitoringLocationWeighting" />
+                    <label class="usa-radio__label" for="proj-mon-weight">Project Monitoring Location Weighting
+                      data</label>
+                  </div>
+                  <div class="usa-radio">
+                    <input class="result-type usa-radio__input" id="samples" type="radio" value="Result" />
+                    <label class="usa-radio__label" for="samples">Sample results (physical/chemical
+                      metadata)</label>
+                  </div>
+                  <div class="usa-radio">
+                    <input class="result-type usa-radio__input" id="biosamples" type="radio" value="Result" />
+                    <label class="usa-radio__label" for="biosamples">Sample results (biological metadata)</label>
+                  </div>
+                  <div class="usa-radio">
+                    <input class="result-type usa-radio__input" id="narrowsamples" type="radio" value="Result" />
+                    <label class="usa-radio__label" for="narrowsamples">Sample results (narrow)</label>
+                  </div>
+                  <div class="usa-radio">
+                    <input class="result-type usa-radio__input" id="activity-input" type="radio" value="Activity" />
+                    <label class="usa-radio__label" for="activity-input">Sampling Activity</label>
+                  </div>
+                  <div class="usa-radio">
+                    <input class="result-type usa-radio__input" id="activitymetric-input" type="radio"
+                      value="ActivityMetric" />
+                    <label class="usa-radio__label" for="activitymetric-input">Sampling Activity Metrics</label>
+                  </div>
+                  <div class="usa-radio">
+                    <input class="result-type usa-radio__input" id="resultdetection" type="radio"
+                      value="ResultDetectionQuantitationLimit" />
+                    <label class="usa-radio__label" for="resultdetection">Result Detection Quantitation Limit
+                      Data</label>
+                  </div>
+                  <div class="usa-radio">
+                    <input class="result-type usa-radio__input" id="biologicalHabitatMetric" type="radio"
+                      value="biologicalHabitatMetric" />
+                    <label class="usa-radio__label" for="biologicalHabitatMetric">Biological Habitat Metrics</label>
+                  </div>
+                </fieldset>
+              </div>
+              <div id="map-and-query-div" class="tablet:grid-col-4">
+                <!-- <div id="mapping-div" class="panel-body">
+                  <div id="map-ops-button-div" class="form-inline">
+                    <div id="show-on-map-button-div" class="form-group">
+                      <button type="button" class="usa-button usa-button--outline" id="show-on-map-button">
+                        Show sites on map
+                      </button>
                     </div>
-                    <div id="map-and-query-div" class="tablet:grid-col-3">
-                      <div id="mapping-div" class="panel-body">
-                        <div id="map-ops-button-div" class="form-inline">
-                          <div id="show-on-map-button-div" class="form-group">
-                            <button type="button" class="usa-button usa-button--outline" id="show-on-map-button">
-                              Show Sites on Map
-                            </button>
-                          </div>
-                          <div id="sld-select-div" class="usa-label">
-                            <label><strong>Style sites</strong>&nbsp;</label>
-                            <select id="sld-select-input" class="usa-select">
-                              {% for sld in config.SITE_SLDS %}
-                              <option value="{{ sld.id }}" {% if loop.first %}checked{% endif %}>
-                                {{ sld.text }}
-                              </option>
-                              {% endfor %}
-                            </select>
-                          </div>
+                    <div id="sld-select-div" class="usa-label">
+                      <label>Style sites:&nbsp;</label>
+                      <select id="sld-select-input" class="usa-select">
+                        {% for sld in config.SITE_SLDS %}
+                        <option value="{{ sld.id }}" {% if loop.first %}checked{% endif %}>
+                          {{ sld.text }}
+                        </option>
+                        {% endfor %}
+                      </select>
+                    </div>
+                  </div>
+                  <div id="query-map-container">
+                    <div id="query-results-map"></div>
+                    <div id="map-loading-indicator">
+                      <i class="fa fa-spin fa-spinner fa-5x"></i>
+                    </div>
+                    <div id="map-popover" title="Detailed site information" data-trigger="focus"></div>
+                  </div>
+                  <div id="query-map-legend-div">
+                    <div class="legend-header">Sites Legend</div>
+                    <div class="legend-container"></div>
+                  </div>
+                </div> -->
+                <div id="form-action">
+                  <div class="share-container" style="padding-top: 5px;">
+                    <button type="button" class="usa-button usa-button--outline" style="float: right; margin-bottom: 10px;">
+                      Copy Current URL
+                    </button>
+                    <textarea class="usa-textarea" readonly rows="3" style="margin-bottom: 10px;"></textarea>
+                  </div>
+                </div>
+                <div id="show-queries-div" class="grid-col">
+                  <!-- <a href="#arcgis-online-modal" class="usa-button usa-button--outline" id="show-arcgis-online-help" type="button" aria-controls="arcgis-online-modal" data-open-modal>
+                    Show ArcGIS Online Parameters
+                  </a> -->
+                  <div class="usa-modal usa-modal--lg" id="arcgis-online-modal" aria-labelledby="modal-2-heading" aria-describedby="modal-2-description">
+                    <div class="usa-modal__content">
+                      <div class="usa-modal__main">
+                        <h2 class="usa-modal__heading" id="modal-2-heading">
+                          Are you sure you want to continue?
+                        </h2>
+                        <div class="usa-prose">
+                          <p id="modal-2-description">You have unsaved changes that will be lost.</p>
                         </div>
-                        <div id="query-map-container">
-                          <div id="query-results-map"></div>
-                          <div id="map-loading-indicator">
-                            <i class="fa fa-spin fa-spinner fa-5x"></i>
-                          </div>
-                          <div id="map-popover" title="Detailed site information" data-trigger="focus"></div>
+                        <div class="usa-modal__footer">
+                          <ul class="usa-button-group">
+                            <li class="usa-button-group__item">
+                                <button type="button" class="usa-button" data-close-modal>Continue without saving</button>
+                              </li>
+                            <li class="usa-button-group__item">
+                                <button type="button" class="usa-button usa-button--unstyled padding-105 text-center" data-close-modal>Go back</button>
+                              </li>
+                            </ul>
                         </div>
-                      </div> 
-                      <div id="api-queries-div">
-                        <a href="#arcgis-online-modal" class="usa-button usa-button--outline" id="show-arcgis-online-help" type="button" aria-controls="arcgis-online-modal" data-open-modal>
-                          Show ArcGIS Online Parameters
-                        </a>
-                        <div class="usa-modal usa-modal--lg" id="arcgis-online-modal" aria-labelledby="modal-2-heading" aria-describedby="modal-2-description">
-                          <div class="usa-modal__content">
-                            <div class="usa-modal__main">
-                              <h2 class="usa-modal__heading" id="modal-2-heading">
-                                Are you sure you want to continue?
-                              </h2>
-                              <div class="usa-prose">
-                                <p id="modal-2-description">You have unsaved changes that will be lost.</p>
-                              </div>
-                              <div class="usa-modal__footer">
-                                <ul class="usa-button-group">
-                                  <li class="usa-button-group__item">
-                                      <button type="button" class="usa-button" data-close-modal>Continue without saving</button>
-                                    </li>
-                                  <li class="usa-button-group__item">
-                                      <button type="button" class="usa-button usa-button--unstyled padding-105 text-center" data-close-modal>Go back</button>
-                                    </li>
-                                  </ul>
-                              </div>
-                            </div>
-                            <button class="usa-button usa-modal__close" aria-label="Close this window" data-close-modal>
-                              
-                        <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                          <use xlink:href="/assets/img/sprite.svg#close"></use>
-                        </svg>
-                      
-                              </button>
-                            </div>
-                        </div>
-                        &nbsp;
-                        <button class="usa-button usa-button--outline" id="show-queries-button" type="button">
-                          Show Web Service Calls
+                      </div>
+                      <button class="usa-button usa-modal__close" aria-label="Close this window" data-close-modal>
+                        
+                  <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/assets/img/sprite.svg#close"></use>
+                  </svg>
+                
                         </button>
-                        &nbsp;
-                        <div id="api-queries-div">
-                          <div class="show-query-text" id="query-div">
-                            <b></b>
-                            <br />
-                            <textarea class="usa-textarea" readonly rows="3"></textarea>
-                          </div>
-                          <div class="show-query-text" id="curl-query-div">
-                            <b>cURL</b>
-                            <br />
-                            <textarea class="usa-textarea" readonly="readonly" rows="6"></textarea>
-                          </div>
-                          <div class="show-query-text" id="getfeature-query-div">
-                            <b>WFS GetFeature</b>
-                            <br />
-                            <textarea class="usa-textarea" readonly="readonly" rows="6"></textarea>
-                          </div>
-                        </div>
                       </div>
-                      <div id="form-action">
-                        <a href="#download-status-modal" id="main-button" class="usa-button" type="submit" aria-controls="example-modal-1" style="float: right;">
-                          DOWNLOAD
-                        </a>
-                        <div class="usa-modal" id="download-status-modal" aria-labelledby="modal-1-heading" aria-describedby="modal-1-description">
-                          <div class="usa-modal__content">
-                            <div class="usa-modal__main">
-                              <h2 class="usa-modal__heading" id="modal-2-heading">
-                                Are you sure you want to continue?
-                              </h2>
-                              <div class="usa-prose">
-                                <p id="modal-2-description">You have unsaved changes that will be lost.</p>
-                              </div>
-                              <div class="usa-modal__footer">
-                                <ul class="usa-button-group">
-                                  <li class="usa-button-group__item">
-                                      <button type="button" class="usa-button" data-close-modal>Continue without saving</button>
-                                    </li>
-                                  <li class="usa-button-group__item">
-                                      <button type="button" class="usa-button usa-button--unstyled padding-105 text-center" data-close-modal>Go back</button>
-                                    </li>
-                                  </ul>
-                              </div>
-                            </div>
-                            <button class="usa-button usa-modal__close" aria-label="Close this window" data-close-modal>
-                              
-                        <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                          <use xlink:href="/assets/img/sprite.svg#close"></use>
-                        </svg>
+                  </div>
+                  &nbsp;
+                  <button class="usa-button usa-button--outline" id="show-queries-button" type="button" style="float: right; margin-bottom: 10px;">
+                    Show Web Service Calls
+                  </button>
+                  &nbsp;
+                  <div id="api-queries-div">
+                    <div class="show-query-text" id="query-div">
+                      <b></b>
+                      <textarea class="usa-textarea" readonly="readonly" rows="6"></textarea>
+                    </div>
+                    <div class="show-query-text" id="curl-query-div">
+                      <b>cURL</b>
+                      <textarea class="usa-textarea" readonly="readonly" rows="6"></textarea>
+                    </div>
+                    <div class="show-query-text" id="getfeature-query-div">
+                      <b>WFS GetFeature</b>
+                      <textarea class="usa-textarea" readonly="readonly" rows="6"></textarea>
+                    </div>
+                  </div>
+                </div>
+                <a href="#download-status-modal" id="main-button" class="usa-button" type="submit" aria-controls="example-modal-1" style="float: right; margin-top: 20px;">
+                  DOWNLOAD
+                </a>
+                <div class="usa-modal" id="download-status-modal" aria-labelledby="modal-1-heading" aria-describedby="modal-1-description">
+                  <div class="usa-modal__content">
+                    <div class="usa-modal__main">
+                      <h2 class="usa-modal__heading" id="modal-2-heading">
+                        Are you sure you want to continue?
+                      </h2>
+                      <div class="usa-prose">
+                        <p id="modal-2-description">You have unsaved changes that will be lost.</p>
+                      </div>
+                      <div class="usa-modal__footer">
+                        <ul class="usa-button-group">
+                          <li class="usa-button-group__item">
+                              <button type="button" class="usa-button" data-close-modal>Continue without saving</button>
+                            </li>
+                          <li class="usa-button-group__item">
+                              <button type="button" class="usa-button usa-button--unstyled padding-105 text-center" data-close-modal>Go back</button>
+                            </li>
+                          </ul>
+                      </div>
+                    </div>
+                    <button class="usa-button usa-modal__close" aria-label="Close this window" data-close-modal>
                       
-                              </button>
-                            </div>
-                        </div>
-                      </div>
+                <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                  <use xlink:href="/assets/img/sprite.svg#close"></use>
+                </svg>
+              
+                      </button>
                     </div>
                 </div>
               </div>
             </div>
           </div>
-        </div> -->
-      </form>
-    </div>
-  </div>
-  <!-- Commented out modals for now -->
-  <!-- <div id="download-status-modal" class="modal fade">
-    <div class="modal-dialog modal-sm">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">
-            &times;
-          </button>
-          <h4></h4>
-        </div>
-        <div class="modal-body"></div>
-        <div class="modal-footer"></div>
-      </div>
-    </div>
-  </div>
-  <div id="arcgis-online-modal" class="modal fade">
-    <div class="modal-dialog model-sm">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">x</button>
-          <h4></h4>
-        </div>
-        <div class="modal-body"></div>
-        <div class="modal-footer"></div>
-      </div>
-    </div>
-  </div>
- <div id="validate-download-dialog" class="modal fade">
-    <div class="modal-dialog modal-sm">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">
-            &times;
-          </button>
-          <h4>Invalid Form Input</h4>
-        </div>
-        <div class="modal-body"></div>
-        <div class="modal-footer">
-          <button id="validate-close-button" type="button" class="btn btn-default" data-dismiss="modal">
-            Ok
-          </button>
         </div>
       </div>
     </div>
   </div>
-  <div id="service-error-dialog" class="modal fade">
-    <div class="modal-dialog modal-sm">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">
-            &times;
-          </button>
-          <h4>Error</h4>
-        </div>
-        <div class="modal-body">
-          Unable to connect to the Water Quality Portal. To report the issue,
-          please
-          <a href="/contact_us/?comments=Unable to initialize the download form.">contact us</a>.
-        </div>
-        <div class="modal-footer">
-          <button id="validate-close-button" type="button" class="btn btn-default" data-dismiss="modal">
-            Ok
-          </button>
-        </div>
-      </div>
-    </div>
-  </div> -->
-  {% endblock %} {% block body_page_script %}
-  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-  <script type="text/javascript" src="{{ 'scripts/portal.js' | asset_url }}"></script>
-  {% endblock %}
+</form>
+</div>
+</div>
+<!-- Commented out modals for now -->
+<!-- <div id="download-status-modal" class="modal fade">
+<div class="modal-dialog modal-sm">
+<div class="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">
+      &times;
+    </button>
+    <h4></h4>
+  </div>
+  <div class="modal-body"></div>
+  <div class="modal-footer"></div>
+</div>
+</div>
+</div>
+<div id="arcgis-online-modal" class="modal fade">
+<div class="modal-dialog model-sm">
+<div class="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">x</button>
+    <h4></h4>
+  </div>
+  <div class="modal-body"></div>
+  <div class="modal-footer"></div>
+</div>
+</div>
+</div>
+<div id="validate-download-dialog" class="modal fade">
+<div class="modal-dialog modal-sm">
+<div class="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">
+      &times;
+    </button>
+    <h4>Invalid Form Input</h4>
+  </div>
+  <div class="modal-body"></div>
+  <div class="modal-footer">
+    <button id="validate-close-button" type="button" class="btn btn-default" data-dismiss="modal">
+      Ok
+    </button>
+  </div>
+</div>
+</div>
+</div>
+<div id="service-error-dialog" class="modal fade">
+<div class="modal-dialog modal-sm">
+<div class="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">
+      &times;
+    </button>
+    <h4>Error</h4>
+  </div>
+  <div class="modal-body">
+    Unable to connect to the Water Quality Portal. To report the issue,
+    please
+    <a href="/contact_us/?comments=Unable to initialize the download form.">contact us</a>.
+  </div>
+  <div class="modal-footer">
+    <button id="validate-close-button" type="button" class="btn btn-default" data-dismiss="modal">
+      Ok
+    </button>
+  </div>
+</div>
+</div>
+</div> -->
+{% endblock %} {% block body_page_script %}
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script type="text/javascript" src="{{ 'scripts/portal.js' | asset_url }}"></script>
+{% endblock %}

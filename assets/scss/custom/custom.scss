@@ -127,12 +127,6 @@ $black: #000;
   position: relative;
 }
 
-#show-queries-div {
-  padding-top: 10px; 
-  margin: auto;
-  width: 50%;
-}
-
 
 // Home Page form intro
 #formIntro{
@@ -233,16 +227,6 @@ $black: #000;
   margin: 0px !important;
 }
 
-.colors {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 1rem;
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-@media (max-width: 600px) {
-  .colors {
-    grid-template-columns: 1fr 1fr;
-  }
+.usa-textarea {
+  height: 5rem !important;
 }
