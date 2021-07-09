@@ -1,6 +1,5 @@
 {% extends 'base.html' %} {% block page_header_title %}Water Quality Data{%
   endblock %} {% block page_content %}
-
   <div id="page-content">
     <div id="app">
       <form role="form" id="params" name="params" autocomplete="off" method="post" action="
@@ -26,8 +25,8 @@
                 <div class="grid-row grid-gap">
                   <div class="tablet:grid-col-3">
                     <div class="form-group">
-                      <div class="tooltip-hover"><label><strong>Country </strong></label><label class="tooltip" class="control-label" for="control-label" :title="countryTooltip"><span style="color: #565c65
-                        ;"><i class="fa fa-info-circle"></i></span></label></div>
+                      <label><strong>Country </strong></label><label class="tooltip" class="control-label" for="control-label" :title="countryTooltip"><span style="color: #565c65
+                        ;"><i class="fa fa-info-circle"></i></span></label>
                       <div>
                         <select multiple class="form-control" id="countrycode" name="countrycode" data-placeholder="Optional"
                           style="width: 90%"></select>
@@ -35,21 +34,21 @@
                     </div>
                     <br>
                     <div class="form-group">
-                      <label><strong>State </strong></label><label class="tooltip" class="control-label" for="statecode" :title="stateTooltip"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
-                      <div>
+                      <label><strong>State </strong></label><label class="tooltip" class="control-label" for="control-label" :title="stateTooltip"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
+                        <div>
                         <select multiple class="form-control" id="statecode" name="statecode" data-placeholder="Optional"
                           style="width: 90%"></select>
                       </div>
-                    </div>
                     <br>
                     <div class="form-group">
-                      <label><strong>County </strong></label><label class="tooltip" class="control-label" for="countycode" :title="countyTooltip"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
+                      <label><strong>County </strong></label><label class="tooltip" class="control-label" for="control-label" :title="countyTooltip"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                       <div>
                         <select multiple class="form-control" id="countycode" name="countycode" data-placeholder="Optional"
                           style="width: 90%"></select>
                       </div>
                     </div>
                   </div>
+                </div>
                   <div class="tablet:grid-col-3">
                     <div id="point-location">
                       <div>
@@ -120,7 +119,7 @@
                       <div id="site-params">
                         <div class="form-group">
                           <label><strong>Site Type </strong></label><div class="tooltip" :title="siteTypeTooltip">
-                            <label class="control-label" for="siteType"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
+                            <label class="control-label" for="control-label"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                           </div>
                             <div>
                               <select multiple id="siteType" name="siteType" data-placeholder="Optional"
@@ -130,7 +129,7 @@
                           <br>
                         <div class="form-group">
                           <label><strong>Organization ID </strong></label><div class="tooltip" :title="orgIDTooltip">
-                            <label class="control-label" for="organization"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
+                            <label class="control-label" for="control-label"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                           </div>
                             <div>
                               <select multiple id="organization" name="organization"
@@ -140,7 +139,7 @@
                           <br>
                         <div class="form-group">
                           <label><strong>Site ID </strong></label><div class="tooltip" :title="siteIDTooltip">
-                            <label class="control-label" for="siteid"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
+                            <label class="control-label" for="control-label"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                           </div>
                             <div>
                               <select multiple id="siteid" input class="form-control" name="siteid" data-placeholder="Optional"
@@ -150,7 +149,7 @@
                           <br>
                         <div class="form-group">
                           <label><strong>HUC </strong></label><div class="tooltip" :title="hucTooltip">
-                            <label class="control-label" for="huc"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
+                            <label class="control-label" for="control-label"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                           </div>
                             <div>
                               <input class="form-control" type="text" name="huc" id="huc" data-multiple="true" placeholder="Optional" size="16" />
@@ -181,7 +180,7 @@
                           <div class="grid-row grid-gap">
                             <div class="tablet:grid-col-4">
                                 <label><strong>Sample Media </strong></label><div class="tooltip" :title="sampleMediaTooltip">
-                                <label class="control-label" for="sampleMedia"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
+                                <label class="control-label" for="control-label"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                                 </div>
                                 <div>
                                   <select multiple class="form-control" name="sampleMedia" id="sampleMedia"
@@ -189,7 +188,7 @@
                               </div>
                               <br>
                               <label><strong>Characteristic Group </strong></label><div class="tooltip" :title="charGroupTooltip">
-                                <label class="control-label" for="characteristicType"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
+                                <label class="control-label" for="control-label"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                               </div>
                                 <div>
                                   <select multiple class="form-control" name="characteristicType" id="characteristicType"
@@ -197,7 +196,7 @@
                                 </div>
                                 <br>
                               <label><strong>Characteristics </strong></label><div class="tooltip" :title="characteristicsTooltip">
-                                <label class="control-label" for="characteristicName"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
+                                <label class="control-label" for="control-label"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                               </div>
                                 <div>
                                   <select multiple class="form-control" name="characteristicName" id="characteristicName"
@@ -205,7 +204,7 @@
                                 </div>
                               <br>
                               <label><strong>Project ID </strong></label><div class="tooltip" :title="projectIDTooltip">
-                                <label class="control-label" for="project-code"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
+                                <label class="control-label" for="control-label"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                               </div>
                                 <div>
                                   <select multiple class="form-control" name="project" id="project-code"
@@ -215,7 +214,7 @@
                                 <div class="tablet:grid-col-4">
                               <label><strong>Parameter Code</strong>
                                   <span style="font-size: x-small">(NWIS ONLY) </span></label><div class="tooltip" id="pcode-div" :title="paramCodeTooltip">
-                                <label class="control-label" for="pCode"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
+                                <label class="control-label" for="control-label"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                                   </div>
                                 <div>
                                   <input class="form-control usa-label" type="text" size="23" placeholder="Optional" name="pCode" id="pCode"
@@ -223,14 +222,14 @@
                                 </div>
                                 <br>
                           <div id="biological" class="subpanel">
-                            <label><strong>Biological Sampling Parameters </strong><div class="tooltip" :title="bioSamplingTooltip">
                             <div class="subpanel-heading">
-                              <span style="color: #565c65;"><i class="fa fa-info-circle"></i></span>
+                            <label><strong>Biological Sampling Parameters </strong><div class="tooltip" :title="bioSamplingTooltip" for="control-label">
+                              <label for="control-label"></label><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span>
                             </div>
                           </div>
                             <div class="subpanel-body">
                               <label><strong>Assemblage </strong></label><div class="tooltip" :title="assemblageTooltip">
-                                <label for="assemblage"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
+                                <label for="control-label"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                               </div>
                                 <div>
                                   <select multiple name="assemblage" id="assemblage"
@@ -239,7 +238,7 @@
                                 <br>
                               <div class="form-group">
                                 <label><strong>Taxonomic
-                                  Name </strong></label><label class="tooltip" for="subjectTaxonomicName" :title="taxNameTooltip"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
+                                  Name </strong></label><label class="tooltip" for="control-label" :title="taxNameTooltip"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                                 <div>
                                   <select multiple name="subjectTaxonomicName" aria-label="Select a taxonomic name"
                                     id="subject-taxonomic-name" data-placeholder="Optional" style="width: 90%"></select>
@@ -252,7 +251,7 @@
                       <div id="date-row">
                         <div id="start-date-select">
                           <label><strong>Date range </strong>(mm/dd/yyyy) </label><div class="tooltip" :title="dateRangeTooltip">
-                            <label for="startDateLo"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
+                            <label for="control-label"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                           </div>
                               <div>
                                 <div>
@@ -273,7 +272,7 @@
                       <br>
                       <div id="min-activities-parameters-div">
                         <label><strong>Minimum sampling activities per site </strong></label><div class="tooltip" id="min-activities-div" :title="minSamplingTooltip">
-                          <label class="control-label" for="min-activities"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
+                          <label class="control-label" for="control-label"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                         </div>
                           <div>
                             <input class="form-control" type="number" min="1" name="minactivities" id="min-activities" placeholder="Optional" size="25" />
@@ -281,7 +280,7 @@
                       </div>
                       <br>
                         <label><strong>Minimum results per site </strong></label><div class="tooltip" id="minresults-div" :title="minimumResultsTooltip">
-                          <label class="control-label" for="minresults"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
+                          <label class="control-label" for="control-label"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                         </div>
                           <div>
                             <input class="form-control" type="number" min="1" name="minresults"
@@ -305,6 +304,8 @@
         </button>
       </h4>
       <div id="a3" class="usa-accordion__content usa-prose">
+        <div>Use the download parameters to specify download preferences.</div>
+        <br>
         <div>
           <div id="download-box" class="grid-row grid-gap">
             <div id="download-box-input-div" class="grid-row grid-gap">
@@ -312,7 +313,7 @@
                 <div class="panel-body">
                   <div class="form-group">
                     <label><strong>Data Source </strong></label><div class="tooltip" :title="databasesTooltip">
-                      <label for="dataSource"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
+                      <label for="control-label"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                     </div>
                     <fieldset class="usa-fieldset">
                       <div class="usa-checkbox">
@@ -335,7 +336,7 @@
                   <br>
                   <div id="download-tabular-data">
                     <label><strong>File Format </strong></label><div class="tooltip" :title="fileFormatTooltip">
-                      <label for="dataSource"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
+                      <label for="control-label"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                     </div>
                     <fieldset class="usa-fieldset">
                       <div class="usa-radio">
@@ -357,7 +358,7 @@
                   <div id="download-sorted-data-div">
                     <input type="checkbox" id="sorted" />
                     <label><strong>Sort data </strong></label><div class="tooltip" :title="sortDataTooltip">
-                      <label class="control-label" for="sorted"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
+                      <label class="control-label" for="control-label"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                     </div>
                   </div>
                   <input type="hidden" name="zip" id="zip" value="yes" />
@@ -366,7 +367,7 @@
               </div>
               <div id="download-data-kind-box" class="tablet:grid-col-5">
                 <label><strong>Data to Download </strong></label><div class="tooltip" id="download-data-div" :title="dataDownloadTooltip">
-                  <label class="control-label" for="dataSource"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
+                  <label class="control-label" for="control-label"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                 </div>
                 <fieldset class="usa-fieldset">
                   <div class="usa-radio">
