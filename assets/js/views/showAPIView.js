@@ -24,19 +24,23 @@ export default class ShowAPIView {
         let $apiQueryText = this.$container.find('#query-div textarea');
         let $curlText = this.$container.find('#curl-query-div textarea');
         let $wfsText = this.$container.find('#getfeature-query-div textarea');
+        let $geoJsonText = this.$container.find('#geojson-query-div textarea')
 
         const showServiceCallsHandler = () => {
             let resultType = this.getResultType();
             let queryParamArray = this.getQueryParamArray();
             const queryParamsWithoutCSRFToken = queryParamArray.filter( param => param.name !== 'csrf_token' );
 
+
             let apiQueryString = queryService.getFormUrl(resultType, getQueryString(queryParamsWithoutCSRFToken));
             let curlString = getCurlString(resultType, queryParamsWithoutCSRFToken);
+            let geoJsonString = queryService.getFormUrl(resultType, getQueryString(queryParamsWithoutCSRFToken));
 
             $apiQueryDiv.show();
             $apiQueryTitle.html(resultType.replace(/([A-Z])/g, ' $1'));
             $apiQueryText.html(apiQueryString);
             $curlText.html(curlString);
+            $geoJsonText.html(geoJsonString);
 
             let queryWithoutDataProfileArray = queryParamsWithoutCSRFToken.filter( param => param.name !== 'dataProfile' );
             $wfsText.html(L.WQPSitesLayer.getWfsGetFeatureUrl(queryWithoutDataProfileArray));
