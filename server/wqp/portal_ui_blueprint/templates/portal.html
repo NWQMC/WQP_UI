@@ -58,20 +58,20 @@
                         <div class="form-group">
                           <label class="control-label" for="within">Within</label>
                           <div>
-                            <input class="usa-input" type="text" name="within" size="16" id="within" placeholder="All" aria-label="First of three input boxes for point location parameter. Input box for number of miles from point." />
+                            <input class="usa-input" type="text" name="within" size="16" id="within" aria-label="First of three input boxes for point location parameter. Input box for number of miles from point." />
                           </div>
                         </div>
                         <div id="miles-label">miles of</div>
                         <div class="form-group">
                           <label class="control-label" for="lat">Latitude</label>
                           <div>
-                            <input class="usa-input" type="text" name="lat" size="16" id="lat" placeholder="0" aria-label="Second of three input boxes for point location parameter. Input box for latitude." />
+                            <input class="usa-input" type="text" name="lat" size="16" id="lat" aria-label="Second of three input boxes for point location parameter. Input box for latitude." />
                           </div>
                         </div>
                         <div class="form-group">
                           <label class="control-label" for="long">Longitude</label>
                           <div>
-                            <input class="usa-input" type="text" name="long" size="16" id="long" placeholder="0" aria-label="Third of three input boxes for point location parameter. Input box for longitude." />
+                            <input class="usa-input" type="text" name="long" size="16" id="long" aria-label="Third of three input boxes for point location parameter. Input box for longitude." />
                           </div>
                         </div>
                         <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
@@ -90,25 +90,25 @@
                         <div class="form-group">
                           <label class="control-label" for="north">North:</label>
                           <div>
-                            <input class="usa-input" type="text" size="16" id="north" placeholder="90" aria-label="First of four input boxes for bounding box parameter. Input box for north latitude." />
+                            <input class="usa-input" type="text" size="16" id="north" aria-label="First of four input boxes for bounding box parameter. Input box for north latitude." />
                           </div>
                         </div>
                         <div class="form-group">
                           <label class="control-label" for="south">South:</label>
                           <div>
-                            <input class="usa-input" type="text" size="16" id="south" placeholder="-90" aria-label="Second of four input boxes for bounding box parameter. Input box for south latitude." />
+                            <input class="usa-input" type="text" size="16" id="south" aria-label="Second of four input boxes for bounding box parameter. Input box for south latitude." />
                           </div>
                         </div>
                         <div class="form-group">
                           <label class="control-label" for="east">East:</label>
                           <div>
-                            <input class="usa-input" type="text" size="16" id="east" placeholder="180" aria-label="Third of four input boxes for bounding box parameter. Input box for east longitude." />
+                            <input class="usa-input" type="text" size="16" id="east" aria-label="Third of four input boxes for bounding box parameter. Input box for east longitude." />
                           </div>
                         </div>
                         <div class="form-group">
                           <label class="control-label" for="west">West:</label>
                           <div>
-                            <input class="usa-input" type="text" size="16" id="west" placeholder="-180" aria-label="Fourth of four input boxes for bounding box parameter. Input box for west longitude." />
+                            <input class="usa-input" type="text" size="16" id="west" aria-label="Fourth of four input boxes for bounding box parameter. Input box for west longitude." />
                           </div>
                         </div>
                       </div>
@@ -365,8 +365,8 @@
                   <input type="hidden" name="sorted" id="hidden-sorted" value="no" />
                 </div>
               </div>
-              <div id="download-data-kind-box" class="tablet:grid-col-5">
-                <label class="usa-label">Data to Download </label><div class="tooltip" id="download-data-div" :title="dataDownloadTooltip">
+              <div id="download-data-kind-box" class="tablet:grid-col-9">
+                <label class="usa-label">Data Profiles </label><div class="tooltip" id="download-data-div" :title="dataDownloadTooltip">
                   <label class="control-label" for="control-label"><span style="color: #565c65;"><i class="fa fa-info-circle"></i></span></label>
                 </div>
                 <fieldset class="usa-fieldset">
@@ -425,7 +425,7 @@
                   </div>
                 </fieldset>
               </div>
-              <div id="map-and-query-div" class="tablet:grid-col-4">
+              <div id="map-and-query-div" class="tablet:grid-col-12">
                 <!-- <div id="mapping-div" class="panel-body">
                   <div id="map-ops-button-div" class="form-inline">
                     <div id="show-on-map-button-div" class="form-group">
@@ -457,10 +457,11 @@
                   </div>
                 </div> -->
                 <div id="form-action">
-                  <div class="share-container" style="padding-top: 5px;">
-                    <button type="button" class="usa-button usa-button--outline" style="float: right; margin-bottom: 10px;" aria-label="Button to copy current URL">
+                  <div class="share-container" style="padding-top: 10px;">
+                    <!-- <button type="button" class="usa-button usa-button--outline" style="float: right; margin-bottom: 10px;" aria-label="Button to copy current URL">
                       Copy Current URL
-                    </button>
+                    </button> -->
+                    <b>URL to Share</b>
                     <textarea class="wqp-textarea" class="usa-textarea" readonly rows="3" style="margin-bottom: 10px;" aria-label="Current URL based on input search parameters"></textarea>
                   </div>
                 </div>
@@ -497,11 +498,6 @@
                         </button>
                       </div>
                   </div>
-                  &nbsp;
-                  <button class="usa-button usa-button--outline" id="show-queries-button" type="button" style="float: right; margin-bottom: 10px;" aria-label="Button to display web service calls">
-                    Web Service Calls
-                  </button>
-                  &nbsp;
                   <div id="api-queries-div">
                     <div class="show-query-text" id="query-div">
                       <b></b>
@@ -515,9 +511,13 @@
                       <b>WFS GetFeature</b>
                       <textarea class="wqp-textarea" class="usa-textarea" readonly="readonly" rows="6" aria-label="Current WFS GetFeature URL based on input search parameters"></textarea>
                     </div>
+                    <div class="show-query-text" id="geojson-query-div">
+                      <b>GeoJSON</b>
+                      <textarea class="wqp-textarea" class="usa-textarea" readonly="readonly" rows="6" aria-label="Current GeoJSON based on input search parameters"></textarea>
+                    </div>
                   </div>
                 </div>
-                <a href="#download-status-modal" id="main-button" class="usa-button" type="submit" aria-controls="example-modal-1" style="float: right; margin-top: 20px;">
+                <a href="#download-status-modal" id="main-button" class="usa-button" type="submit" aria-controls="example-modal-1" style="float: left; color:white;">
                   DOWNLOAD
                 </a>
                 <div class="usa-modal" id="download-status-modal" aria-labelledby="modal-1-heading" aria-describedby="modal-1-description">

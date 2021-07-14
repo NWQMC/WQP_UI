@@ -43,10 +43,9 @@ export default class ShowAPIView {
         };
 
         // Update the service calls when the
-        this.$container.find('#show-queries-button').click(() => {
             this.showAPIViewVisible = true;
             showServiceCallsHandler();
-        });
+
         this.$container.closest('form').change(() => {
             if (this.showAPIViewVisible) {
                 showServiceCallsHandler();

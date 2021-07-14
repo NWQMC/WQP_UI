@@ -209,8 +209,10 @@ $black: #000;
 }
 
 .wqp-textarea {
+  display: block;
   height: 5rem;
-  width: 18rem;
+  width: 55rem;
+  margin-bottom: 1rem;
 }
 
 a:link {
