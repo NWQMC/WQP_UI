@@ -10,5 +10,5 @@ geojson==2.5.0
 gunicorn[gevent]==20.1.0
 pyproj==3.0.1
 redis==3.5.3
-requests==2.25.1
+requests==2.26.0
 whitenoise==5.2.0
